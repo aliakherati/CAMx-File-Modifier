@@ -23,7 +23,7 @@ The followings are all ending index (not included) for the row/column/layer wher
 6. `-re`/`--rowend`
 7. `-ce`/`--colend`
 8. `-le`/`--layend`
-The followings are range of row/column/layer indecies in a form of comma separated `string` containing two `integer`s where you want to take an average of concentration values
+The followings are range of row/column/layer indicies in a form of comma separated `string` containing two `integer`s where you want to take an average of concentration values
 9. `-ra`/`--rowindexavg`
 10. `-ca`/`--columnindexavg`
 11. `-la`/`--layerindexavg`
