@@ -2,10 +2,10 @@
 
 There scripts are:
 - `netcdf_modifier.py`: It is a library that contains the functions
-- `modify_conc_netcdf.py`: It is the python script to modify CAMx output concentration file.
+- `modify_conc_netcdf.py`: It is the python script to modify CAMx output concentration file
 
 ## How to use
-1. You need to create a virtual environment in the repo first by `$ python3 -m venv venv`.
+1. You need to create a virtual environment in the repo first by `$ python3 -m venv venv`
 2. Activate the virtual environment by running this command: `$ source venv/bin/activate`
 3. Update `pip` to install packages by running this command: `$ pip install --upgrade pip`
 4. Install the required libraries by using `requirements.txt`: `$ pip install -r requirements.txt`
