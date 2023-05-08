@@ -46,15 +46,15 @@ class netcdf_modifier:
             ending index for the layer where you want to clip
             the netCDF file
         RowIndexAvg : list
-            range of row indecies in a form of list containing
+            range of row indicies in a form of list containing
             two integers where you want to take an average of
             concentration values
         ColumnIndexAvg : list
-            range of column indecies in a form of list containing
+            range of column indicies in a form of list containing
             two integers where you want to take an average of
             concentration values
         LayerIndexAvg : list
-            range of layer indecies in a form of list containing
+            range of layer indicies in a form of list containing
             two integers where you want to take an average of
             concentration values
         
