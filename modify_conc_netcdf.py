@@ -47,19 +47,19 @@ if __name__=="__main__":
     parser.add_argument(
         "-ra", "--rowindexavg",
         type=str, required=True,
-        help='range of row indecies in a form of comma separated string containing two '+
+        help='range of row indicies in a form of comma separated string containing two '+
         'integers where you want to take an average of concentration values'
     )
     parser.add_argument(
         "-ca", "--columnindexavg",
         type=str, required=True,
-        help='range of column indecies in a form of comma separated string '+ 
+        help='range of column indicies in a form of comma separated string '+ 
         'containing two integers where you want to take an average of concentration values'
     )
     parser.add_argument(
         "-la", "--layerindexavg",
         type=str, required=True,
-        help='range of layer indecies in a form of comma separated string containing '+ 
+        help='range of layer indicies in a form of comma separated string containing '+ 
         'two integers where you want to take an average of concentration values'
     )
     parser.add_argument(
