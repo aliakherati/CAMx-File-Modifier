@@ -1,7 +1,6 @@
 from netcdf_modifier import *
 import argparse
 
-
 if __name__=="__main__":
     parser = argparse.ArgumentParser(description='Process netCDF concentration file')
     parser.add_argument(
