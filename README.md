@@ -33,5 +33,5 @@ Output information
 
 You can follow the example below:
 ```
-python3 modify-conc-netcdf.py -d "../netcdf-files/" -f "camx720_cb6r5_avrg.20190723.txo3.bc19_19jul.v2d_v2a.2019_wrf415_noah_ysu_lyr45t30.txs_4km.nc" -rs 0 -re 10 -cs 0 -ce 20 -ls 0 -le 2 -ra "20, 50" -ca "30,60" -la "0,2" -od "../output/" -on "out_argparse.nc"
+python3 modify-conc-netcdf.py -d "../netcdf-files/" -f "camx720_cb6r5_avrg.20190723.txo3.bc19_19jul.v2d_v2a.2019_wrf415_noah_ysu_lyr45t30.txs_4km.nc" -rs 0 -re 10 -cs 0 -ce 20 -ls 0 -le 2 -ra "20, 50" -ca "30,60" -la "0,2" -od "../output/" -on "output-file"
 ```
