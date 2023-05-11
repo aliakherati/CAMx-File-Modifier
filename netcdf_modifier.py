@@ -172,3 +172,42 @@ class netcdf_modifier:
     ) -> None:
         nc_dataset.to_netcdf(f"{OutputDirectory}/{OutputName}")
         pass
+
+    def modify_met_kv(
+        self,
+        FileName:str,
+        RowStart:int,
+        RowEnd:int,
+        ColumnStart:int,
+        ColumnEnd:int,
+        LayerStart:int,
+        LayerEnd:int,
+    ):
+        # ----------------------------------------------------------------------
+        # Error checking
+        if (ColumnEnd<=ColumnStart):
+            raise ValueError("ColumnStart is bigger than or equal to ColumnEnd")
+        if (RowEnd<RowStart):
+            raise ValueError("RowStart is bigger than or equal to RowEnd")
+        if (LayerEnd<LayerStart):
+            raise ValueError("LayerStart is bigger than or equal to LayerEnd")
+        # -----------------------------------------------------------------------
+        
+        # read the file
+        ds = xr.open_dataset(f"{self.directory}/{FileName}")
+        
+        # select the window you need for your simulation
+        new_ds = ds.isel(
+            COL=slice(ColumnStart, ColumnEnd),
+            ROW=slice(RowStart, RowEnd),
+            LAY=slice(LayerStart, LayerEnd),
+        )
+                
+        # editing the attributes
+        new_ds.attrs["NCOLS"] = ColumnEnd-ColumnStart
+        new_ds.attrs["NROWS"] = RowEnd-RowStart
+        new_ds.attrs["NLAYS"] = LayerEnd-LayerStart
+        
+        new_ds.variables['kv'].values[:] = 0.1
+
+        return new_ds
