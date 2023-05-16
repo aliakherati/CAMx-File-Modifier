@@ -38,5 +38,5 @@ python3 modify-conc-netcdf.py -d "../netcdf-files/" -f "camx720_cb6r5_avrg.20190
 ```
 or this one:
 ```
-python modify_conc_netcdf.py -d ../netcdf-files/inputs -fc camx720_cb6r5_avrg.20190723.txo3.bc19_19jul.v2d_v2a.2019_wrf415_noah_ysu_lyr45t30.txs_4km.nc -fkv camx7_kv.20190807.2019_wrf415_noah_ysu_txe_lyr45t30.txs_4km.v51.nc.CMAQ.kv100a -fm2 camx7_met2d.20190807.2019_wrf415_noah_ysu_txe_lyr45t30.txs_4km.v51.nc -fm3 camx7_met3d.20190807.2019_wrf415_noah_ysu_txe_lyr45t30.txs_4km.v51.nc -rs 0 -re 10 -cs 0 -ce 20 -ls 0 -le 2 -ra "20,200" -ca "20,50" -la "0,2" -od ../output -on new_files
+python modify_all_netcdf.py -d ../netcdf-files/inputs -fc camx720_cb6r5_avrg.20190723.txo3.bc19_19jul.v2d_v2a.2019_wrf415_noah_ysu_lyr45t30.txs_4km.nc -fkv camx7_kv.20190807.2019_wrf415_noah_ysu_txe_lyr45t30.txs_4km.v51.nc.CMAQ.kv100a -fm2 camx7_met2d.20190807.2019_wrf415_noah_ysu_txe_lyr45t30.txs_4km.v51.nc -fm3 camx7_met3d.20190807.2019_wrf415_noah_ysu_txe_lyr45t30.txs_4km.v51.nc -rs 0 -re 10 -cs 0 -ce 20 -ls 0 -le 2 -ra "20,200" -ca "20,50" -la "0,2" -od ../output -on new_files
 ```
