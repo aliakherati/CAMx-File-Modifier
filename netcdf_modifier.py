@@ -219,8 +219,6 @@ class netcdf_modifier:
         RowEnd:int,
         ColumnStart:int,
         ColumnEnd:int,
-        LayerStart:int,
-        LayerEnd:int,
         RowIndexAvg:list,
         ColumnIndexAvg:list,
     ):
@@ -235,8 +233,6 @@ class netcdf_modifier:
             raise ValueError("ColumnStart is bigger than or equal to ColumnEnd")
         if (RowEnd<RowStart):
             raise ValueError("RowStart is bigger than or equal to RowEnd")
-        if (LayerEnd<LayerStart):
-            raise ValueError("LayerStart is bigger than or equal to LayerEnd")
         # -----------------------------------------------------------------------
 
         # read the file
@@ -283,8 +279,7 @@ class netcdf_modifier:
         # editing the attributes
         new_ds.attrs["NCOLS"] = ColumnEnd-ColumnStart
         new_ds.attrs["NROWS"] = RowEnd-RowStart
-        new_ds.attrs["NLAYS"] = LayerEnd-LayerStart
-
+        
         return new_ds, excel_mean
 
     def modify_met_3d(
@@ -325,6 +320,7 @@ class netcdf_modifier:
         selected_ds = ds.isel(
             COL=slice(ColumnIndexAvg[0], ColumnIndexAvg[1]),
             ROW=slice(RowIndexAvg[0], RowIndexAvg[1]),
+            LAY=slice(LayerIndexAvg[0], LayerIndexAvg[1]),
         )
         # take the mean
         mean_ds = selected_ds.mean(dim=["ROW", "COL"])
@@ -333,6 +329,7 @@ class netcdf_modifier:
         new_ds = ds.isel(
             COL=slice(ColumnStart, ColumnEnd),
             ROW=slice(RowStart, RowEnd),
+            LAY=slice(LayerStart, LayerEnd),
         )
 
         # replace the values with the average value for each variable at the surface
