@@ -350,7 +350,8 @@ class netcdf_modifier:
         # set u wind speed to zero 
         new_ds.variables['uwind'].values[:] = 0
         # set v wind speed to zero 
-        new_ds.variables['vwind'].values[:] = 0.0926 # m/s (purging layer 2 with 12 hr lifetime)
+        new_ds.variables['vwind'].values[:,1] = 0.0926 # m/s (purging layer 2 with 12 hr lifetime)
+        new_ds.variables['vwind'].values[:,0] = 0.0 # m/s (layer 1 should be zero)
 
         # to create excel file
         excel_mean = {}
