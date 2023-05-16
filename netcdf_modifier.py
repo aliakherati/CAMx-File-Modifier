@@ -285,7 +285,7 @@ class netcdf_modifier:
         new_ds.attrs["NROWS"] = RowEnd-RowStart
         new_ds.attrs["NLAYS"] = LayerEnd-LayerStart
 
-    return new_ds, excel_mean
+        return new_ds, excel_mean
 
     def modify_met_3d(
         self,
@@ -372,4 +372,4 @@ class netcdf_modifier:
         new_ds.attrs["NROWS"] = RowEnd-RowStart
         new_ds.attrs["NLAYS"] = LayerEnd-LayerStart
 
-    return new_ds, excel_mean
+        return new_ds, excel_mean
