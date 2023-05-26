@@ -265,7 +265,7 @@ class netcdf_modifier:
 
         for var in ['pblwrf', 'pblcmaq', 'pblysu']:
             new_ds.variables[var].values[new_ds.variables[var].values<100] = 100
-            new_ds.variables[var].values[new_ds.variables[var].values<2500] = 2500
+            new_ds.variables[var].values[new_ds.variables[var].values>2500] = 2500
 
         # to create excel file
         excel_mean = {}
