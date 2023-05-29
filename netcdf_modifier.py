@@ -1,6 +1,7 @@
 import numpy as np
 import xarray as xr
 import pandas as pd
+from copy import deepcopy
 
 class netcdf_modifier:
     def __init__(self, directory:str) -> None:
@@ -221,6 +222,7 @@ class netcdf_modifier:
         ColumnEnd:int,
         RowIndexAvg:list,
         ColumnIndexAvg:list,
+        pbl_windowavg:bool=False,
     ):
         # ----------------------------------------------------------------------
         # Error checking
@@ -263,8 +265,18 @@ class netcdf_modifier:
         for var in ['snowewd', 'snowage', 'tcloudod', 'preciprate', 'cloudtop']:
             new_ds[var][:] = 0.0
 
+        if pbl_windowavg:
+            pbl = new_ds.variables['pblwrf'].values
+            new_pbl = deepcopy(pbl)
+            for i in range(2,13):
+                if i==2:
+                    new_pbl[i-1] = np.nanmean(pbl[i-2:i], axis=0)
+                else:
+                    new_pbl[i-1] = np.nanmean(pbl[i-3:i], axis=0)
+            new_ds.variables['pblwrf'].values = new_pbl
+
         for var in ['pblwrf', 'pblcmaq', 'pblysu']:
-            new_ds.variables[var].values[new_ds.variables[var].values<100] = 100
+            new_ds.variables[var].values[new_ds.variables[var].values<30] = 30
             new_ds.variables[var].values[new_ds.variables[var].values>2500] = 2500
 
         # to create excel file
@@ -371,3 +383,4 @@ class netcdf_modifier:
         new_ds.attrs["NLAYS"] = LayerEnd-LayerStart
 
         return new_ds, excel_mean
+    
